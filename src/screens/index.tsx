@@ -18,6 +18,11 @@ export const screens = generateRNNScreens(
     Main: {
       component: Main,
       options: {
+        topBar: {
+          title: {text: 'Main'},
+          visible:false
+          
+      },
         // topBar: {
         //   // title is set in services/navigation/index.ts::configureTitleTranslations
         //   // ...withRightButtons('inc', 'dec'),
@@ -42,6 +47,7 @@ export const screens = generateRNNScreens(
     Menu: {
       component: Menu,
       options: {
+        topBar:{visible:false},
         // topBar: {title: {text: 'menu'}},
         ...withBottomTab('Menu', 'menu'),
       },

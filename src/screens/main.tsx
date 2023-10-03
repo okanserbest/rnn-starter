@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {ScrollView} from 'react-native';
-import {Text, View} from 'react-native-ui-lib';
+import {TabController, Text, View} from 'react-native-ui-lib';
 import {ScreenComponent} from 'rnn-screens';
 import Constants from 'expo-constants';
 import * as Application from 'expo-application';
@@ -17,6 +17,8 @@ import {Section} from '../components/section';
 import {BButton} from '../components/button';
 import {Reanimated2} from '../components/reanimated2';
 import {Row} from '../components/row';
+import MainNavTab from '../components/mainNavTab';
+
 
 export const Main: ScreenComponent = observer(({componentId}) => {
   const {counter, ui} = useStores();
@@ -60,7 +62,27 @@ export const Main: ScreenComponent = observer(({componentId}) => {
   return (
     <View flex bg-bgColor>
       <ScrollView contentInsetAdjustmentBehavior="always">
-        <Section title="Expo">
+      <MainNavTab/>
+        {/* <View>
+          <TabController
+            initialIndex={0}
+            items={[{label: 'Kadın'}, {label: 'Erkek'}, {label: 'Genç'}]}>
+            <TabController.TabBar enableShadows />
+            <View flex>
+              <TabController.TabPage index={0}>
+              <MainNavTab/>
+              </TabController.TabPage>
+              <TabController.TabPage index={1} lazy>
+                <Text>Erkek</Text>
+              </TabController.TabPage>
+              <TabController.TabPage index={2} lazy>
+                <Text>Genç</Text>
+              </TabController.TabPage>
+            </View>
+          </TabController>
+        </View> */}
+
+        {/* <Section title="Expo">
           <Text text60R textColor>
             Session ID: {Constants.sessionId}
           </Text>
@@ -115,7 +137,7 @@ export const Main: ScreenComponent = observer(({componentId}) => {
             label="Update counter value from API"
             onPress={getCounterValue}
           />
-        </Section>
+        </Section> */}
       </ScrollView>
     </View>
   );
